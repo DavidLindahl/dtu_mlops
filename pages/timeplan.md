@@ -1,6 +1,10 @@
 # Time plan
 
+<<<<<<< HEAD
+[Slides](../slides/day1_introduction_to_the_course.pdf){ .md-button }
+=======
 [Slides](../slides/IntroToTheCourse.pdf){ .md-button }
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
 
 The course is organized into *exercise* (2/3 of the course) days and *project* days (1/3 of the course).
 
@@ -31,8 +35,13 @@ especially with a focus on making everything reproducible.
 Date    | Day       | Presentation topic                                                 | Frameworks                           | Format
 --------|-----------|--------------------------------------------------------------------|--------------------------------------|-----------
 5/1/26  | Monday    | [Deep learning software📝](../slides/DeepLearningSoftware.pdf)     | Terminal, Conda, IDE, PyTorch        | [Exercises](../s1_development_environment/README.md)
+<<<<<<< HEAD
+6/1/26  | Tuesday   | [MLOps: what is it?📝](../slides/day2_introduction_to_mlops.pdf)                 | Git, CookieCutter, Pep8, DVC         | [Exercises](../s2_organisation_and_version_control/README.md)
+7/1/26  | Wednesday | [Reproducibility📝](../slides/day3_reproducibility_and_software.pdf)      | Docker, Hydra                        | [Exercises](../s3_reproducibility/README.md)
+=======
 6/1/26  | Tuesday   | [MLOps: what is it?📝](../slides/IntroToMLOps.pdf)                 | Git, CookieCutter, Pep8, DVC         | [Exercises](../s2_organisation_and_version_control/README.md)
 7/1/26  | Wednesday | [Reproducibility📝](../slides/ReproducibilityAndSoftware.pdf)      | Docker, Hydra                        | [Exercises](../s3_reproducibility/README.md)
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
 8/1/26  | Thursday  | [Debugging📝](../slides/DebuggingML.pdf)                           | Debugger, Profiler, Wandb, Lightning | [Exercises](../s4_debugging_and_logging/README.md)
 9/1/26  | Friday    | [Project work📝](../slides/Projects.pdf)                           | -                                    | [Projects](projects.md)
 

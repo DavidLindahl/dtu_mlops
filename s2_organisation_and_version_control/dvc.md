@@ -106,13 +106,21 @@ it contains excellent tutorials.
 
         ```bash
         pip install -U pip
+<<<<<<< HEAD
+        pip install -U dvc dvc-gdrive
+=======
         pip install -U dvc-gdrive
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
         ```
 
     === "Using uv"
 
         ```bash
+<<<<<<< HEAD
+        uv add --upgrade dvc dcv-gdrive
+=======
         uv update -U dvc-gdrive
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
         ```
 
     If this does not work for you, it is most likely due to a problem with `pygit2` and in that case we recommend that

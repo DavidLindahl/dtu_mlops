@@ -114,11 +114,19 @@ look online for your answers before looking at the solution. Remember: it's not 
 1. Start by installing hydra.
 
     === "Using pip"
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
         ```bash
         pip install hydra-core
         ```
 
     === "Using uv"
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
         ```bash
         uv add hydra-core
         ```
