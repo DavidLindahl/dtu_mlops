@@ -330,9 +330,5 @@ Before getting started with this set of exercises you should have completed
 4. Make sure your documentation is published and looks as it should.
 
 This ends the module on technical documentation. We cannot stress enough how important it is to write proper
-<<<<<<< HEAD
 documentation for larger projects that need to be maintained over a longer time. It is often an iterative process, but
-=======
-documentation for larger projects that need to be maintained over a longer time. It is often a iterative process, but
->>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
 it is often best to do it while writing the code.

@@ -22,11 +22,7 @@
     experience with the following topics:
 
     * General understanding of machine learning (datasets, probability, classifiers, overfitting, underfitting, etc.)
-<<<<<<< HEAD
     * Basic knowledge of deep learning (backpropagation, convolutional neural networks, autoencoders etc.)
-=======
-    * Basic knowledge of deep learning (backpropagation, convolutional neural networks, auto-encoders etc.)
->>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
     * Coding in [PyTorch](https://pytorch.org/). On the first day, we provide some exercises in PyTorch to
         get everyone's skills up-to-date as fast as possible.
 
@@ -110,11 +106,7 @@ design phase. Some new algorithms may show promising results, so you revisit the
 this. Finally, you may try to cut the cost of running your model in production, making you revisit the operations phase,
 and trying to optimize some steps.
 
-<<<<<<< HEAD
 The focus of this course is particularly on the **Operations** part of MLOps as this is what many data scientists are
-=======
-The focus in this course is particularly on the **Operations** part of MLOps as this is what many data scientists are
->>>>>>> 0d203bc3f87dd6da927cebe96c114c880af7e932
 missing in their toolbox to implement all the knowledge they have about data processing and model development into a
 production setting.
 
