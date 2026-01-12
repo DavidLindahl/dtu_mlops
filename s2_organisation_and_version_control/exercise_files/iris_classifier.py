@@ -1,13 +1,13 @@
-import typer
-from typing import Optional, Annotated
 import pickle
+from typing import Annotated
 
+import typer
 from sklearn.datasets import load_breast_cancer
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
 
 app = typer.Typer()
 train_app = typer.Typer()
@@ -27,10 +27,10 @@ scaler = StandardScaler()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.transform(x_test)
 
-@train_app.command()
-def svm(kernel: str = "linear", output: Annotated[Optional[str], typer.Option("--output", "-o")] = None):
-    """Train an SVM model."""
 
+@train_app.command()
+def svm(kernel: str = "linear", output: Annotated[str | None, typer.Option("--output", "-o")] = None):
+    """Train an SVM model."""
     # Train a Support Vector Machine (SVM) model
     model = SVC(kernel="linear", random_state=42)
     model.fit(x_train, y_train)
@@ -39,10 +39,10 @@ def svm(kernel: str = "linear", output: Annotated[Optional[str], typer.Option("-
         with open(output, "wb") as f:
             pickle.dump(model, f)
 
-@train_app.command()
-def knn(n_neighbors: int = 5, output: Annotated[Optional[str], typer.Option("--output", "-o")] = None):
-    """Train a KNN model."""
 
+@train_app.command()
+def knn(n_neighbors: int = 5, output: Annotated[str | None, typer.Option("--output", "-o")] = None):
+    """Train a KNN model."""
     # Train a KNN model
     model = KNeighborsClassifier(n_neighbors=n_neighbors)
     model.fit(x_train, y_train)
@@ -50,6 +50,7 @@ def knn(n_neighbors: int = 5, output: Annotated[Optional[str], typer.Option("--o
     if output is not None:
         with open(output, "wb") as f:
             pickle.dump(model, f)
+
 
 @app.command()
 def evaluate(model_path: str):
@@ -74,4 +75,3 @@ def evaluate(model_path: str):
 # this "if"-block is added to enable the script to be run from the command line
 if __name__ == "__main__":
     app()
-    

@@ -4,7 +4,6 @@ from typing import Annotated, Optional
 import typer
 from torch.utils.data import Dataset
 import torch
-import numpy as np
 
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
@@ -20,12 +19,10 @@ class MyDataset(Dataset):
         data = load_breast_cancer()
         x = data.data
         y = data.target
-        
+
         # Split into train and test sets
-        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(
-            x, y, test_size=0.2, random_state=42
-        )
-        
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
         # Scale the features
         self.scaler = StandardScaler()
         self.x_train = self.scaler.fit_transform(self.x_train)
@@ -50,7 +47,9 @@ class MyDataset(Dataset):
 
 
 def preprocess(
-    output_folder: Annotated[Optional[str], typer.Option("--output-folder", "-o", help="Path to save processed data")] = "data/processed"
+    output_folder: Annotated[
+        Optional[str], typer.Option("--output-folder", "-o", help="Path to save processed data")
+    ] = "data/processed",
 ) -> None:
     """Load and preprocess the breast cancer dataset."""
     print("Loading breast cancer dataset...")

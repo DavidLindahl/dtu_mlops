@@ -54,7 +54,7 @@ class Encoder(nn.Module):
     def reparameterization(self, mean, log_var):
         """Reparameterization trick to sample z values."""
         std = torch.exp(0.5 * log_var)
-        epsilon = torch.randn_like(std ,device=mean.device)
+        epsilon = torch.randn_like(std, device=mean.device)
         return mean + std * epsilon
 
 
