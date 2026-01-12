@@ -1,4 +1,3 @@
-from model import Model
 from data import MyDataset
 
 import typer
@@ -13,10 +12,13 @@ train_app = typer.Typer()
 app.add_typer(train_app, name="train")
 
 dataset = MyDataset()
-x_train , y_train = dataset.x_train, dataset.y_train
+x_train, y_train = dataset.x_train, dataset.y_train
+
 
 @train_app.command()
-def svm(kernel: str = "linear", output: Annotated[Optional[str], typer.Option("--output", "-o")] = "models/svm_model.pkl"):
+def svm(
+    kernel: str = "linear", output: Annotated[Optional[str], typer.Option("--output", "-o")] = "models/svm_model.pkl"
+):
     """Train an SVM model."""
 
     print(f"Starting training of SVM model with kernel='{kernel}'...")
@@ -32,8 +34,11 @@ def svm(kernel: str = "linear", output: Annotated[Optional[str], typer.Option("-
             pickle.dump(model, f)
         print("Model saved.")
 
+
 @train_app.command()
-def knn(n_neighbors: int = 5, output: Annotated[Optional[str], typer.Option("--output", "-o")] = "models/knn_model.pkl"):
+def knn(
+    n_neighbors: int = 5, output: Annotated[Optional[str], typer.Option("--output", "-o")] = "models/knn_model.pkl"
+):
     """Train a KNN model."""
 
     print(f"Starting training of KNN model with n_neighbors={n_neighbors}...")
@@ -48,6 +53,7 @@ def knn(n_neighbors: int = 5, output: Annotated[Optional[str], typer.Option("--o
         with open(output, "wb") as f:
             pickle.dump(model, f)
         print("Model saved.")
+
 
 # this "if"-block is added to enable the script to be run from the command line
 if __name__ == "__main__":

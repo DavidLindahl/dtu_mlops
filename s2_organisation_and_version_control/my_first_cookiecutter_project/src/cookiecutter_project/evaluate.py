@@ -14,7 +14,7 @@ def evaluate(model_path: str):
     """Evaluate the model."""
     dataset = MyDataset()
     x_test, y_test = dataset.x_test, dataset.y_test
-    
+
     with open(model_path, "rb") as f:
         model = pickle.load(f)
 
