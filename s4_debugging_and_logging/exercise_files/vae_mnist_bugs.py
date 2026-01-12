@@ -13,7 +13,7 @@ from torchvision.utils import save_image
 
 # Model Hyperparameters
 dataset_path = "datasets"
-cuda = True
+cuda = torch.cuda.is_available()
 DEVICE = torch.device("cuda" if cuda else "cpu")
 batch_size = 100
 x_dim = 784
@@ -52,10 +52,11 @@ class Encoder(nn.Module):
         z = self.reparameterization(mean, log_var)
         return z, mean, log_var
 
-    def reparameterization(self, mean, var):
+    def reparameterization(self, mean, log_var):
         """Reparameterization trick to sample z values."""
-        epsilon = torch.randn(*var.shape)
-        return mean + var * epsilon
+        std = torch.exp(0.5 * log_var)
+        epsilon = torch.randn_like(std ,device=mean.device)
+        return mean + std * epsilon
 
 
 class Decoder(nn.Module):
@@ -64,7 +65,7 @@ class Decoder(nn.Module):
     def __init__(self, latent_dim, hidden_dim, output_dim) -> None:
         super().__init__()
         self.FC_hidden = nn.Linear(latent_dim, hidden_dim)
-        self.FC_output = nn.Linear(latent_dim, output_dim)
+        self.FC_output = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
         """Forward pass of the decoder module."""
@@ -119,7 +120,7 @@ for epoch in range(epochs):
         loss = loss_function(x, x_hat, mean, log_var)
 
         overall_loss += loss.item()
-
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
     print(
