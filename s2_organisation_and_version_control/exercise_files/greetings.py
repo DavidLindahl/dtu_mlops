@@ -1,8 +1,9 @@
 import typer
 
+
 def main(name: str = "World", count: int = 1):
     """Print a greeting multiple times.
-    
+
     Args:
         name: The name to greet.
         count: The number of times to greet.
