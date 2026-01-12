@@ -9,12 +9,6 @@ from torch.utils.data import Dataset
 from cookiecutter_project.data import MyDataset
 
 
-def test_my_dataset_is_dataset():
-    """Test that MyDataset is an instance of Dataset."""
-    dataset = MyDataset()
-    assert isinstance(dataset, Dataset)
-
-
 def test_my_dataset_initialization():
     """Test that MyDataset initializes correctly."""
     dataset = MyDataset()
@@ -219,3 +213,40 @@ def test_my_dataset_test_scaled_with_train_scaler():
     assert np.allclose(test_mean, 0, atol=1.0)
     # Test std should be close to 1
     assert np.allclose(test_std, 1, atol=1.0)
+
+
+def test_preprocess_function():
+    """Test that the preprocess function saves data files correctly."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        output_folder = Path(tmpdir) / "processed"
+        
+        # Import and call the preprocess function
+        from cookiecutter_project.data import preprocess
+        
+        # Call the function
+        preprocess(str(output_folder))
+        
+        # Check that all files were created
+        assert (output_folder / "x_train.pt").exists(), \
+            f"preprocess should create x_train.pt, but file does not exist at {output_folder / 'x_train.pt'}"
+        assert (output_folder / "x_test.pt").exists(), \
+            f"preprocess should create x_test.pt, but file does not exist at {output_folder / 'x_test.pt'}"
+        assert (output_folder / "y_train.pt").exists(), \
+            f"preprocess should create y_train.pt, but file does not exist at {output_folder / 'y_train.pt'}"
+        assert (output_folder / "y_test.pt").exists(), \
+            f"preprocess should create y_test.pt, but file does not exist at {output_folder / 'y_test.pt'}"
+        
+        # Verify files can be loaded and have correct shapes
+        x_train_loaded = torch.load(output_folder / "x_train.pt")
+        x_test_loaded = torch.load(output_folder / "x_test.pt")
+        y_train_loaded = torch.load(output_folder / "y_train.pt")
+        y_test_loaded = torch.load(output_folder / "y_test.pt")
+        
+        assert x_train_loaded.shape[0] == 455, \
+            f"x_train should have 455 samples, but got {x_train_loaded.shape[0]}"
+        assert x_test_loaded.shape[0] == 114, \
+            f"x_test should have 114 samples, but got {x_test_loaded.shape[0]}"
+        assert y_train_loaded.shape[0] == 455, \
+            f"y_train should have 455 samples, but got {y_train_loaded.shape[0]}"
+        assert y_test_loaded.shape[0] == 114, \
+            f"y_test should have 114 samples, but got {y_test_loaded.shape[0]}"

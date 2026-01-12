@@ -57,3 +57,7 @@ line-length = 120
 
 [tool.coverage.run]
 omit = ["tests/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
