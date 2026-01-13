@@ -1335,7 +1335,7 @@ dependencies = [
     { name = "ruff" },
     { name = "scikit-learn" },
     { name = "snakeviz" },
-    { name = "tensorboard-plugin-profile", marker = "sys_platform != 'win32'" },
+    { name = "tensorboard-plugin-profile", marker = "python_full_version < '3.14' and sys_platform != 'win32'" },
     { name = "torch-tb-profiler" },
     { name = "torchvision" },
     { name = "typer" },
@@ -1408,7 +1408,7 @@ requires-dist = [
     { name = "ruff", specifier = ">=0.14.5" },
     { name = "scikit-learn", specifier = ">=1.7.2" },
     { name = "snakeviz", specifier = ">=2.2.2" },
-    { name = "tensorboard-plugin-profile", marker = "sys_platform != 'win32'", specifier = ">=2.21.3" },
+    { name = "tensorboard-plugin-profile", marker = "python_full_version < '3.14' and sys_platform != 'win32'", specifier = ">=2.21.3" },
     { name = "torch-tb-profiler", specifier = ">=0.4.3" },
     { name = "torchvision", specifier = ">=0.24.1" },
     { name = "typer", specifier = ">=0.19.2" },
@@ -7214,7 +7214,7 @@ wheels = [
 
 [[package]]
 name = "transformers"
-version = "4.57.3"
+version = "4.57.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "filelock" },
@@ -7228,9 +7228,9 @@ dependencies = [
     { name = "tokenizers" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/dd/70/d42a739e8dfde3d92bb2fff5819cbf331fe9657323221e79415cd5eb65ee/transformers-4.57.3.tar.gz", hash = "sha256:df4945029aaddd7c09eec5cad851f30662f8bd1746721b34cc031d70c65afebc", size = 10139680, upload-time = "2025-11-25T15:51:30.139Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ad/fb/3b41120b61e036b7d8b5ce8ea0f0e75085f3dd45bac5641b949d2636a0bf/transformers-4.57.4.tar.gz", hash = "sha256:e73b4cd94d6f25ba64210949dc809f1e88cc3e876bb17280d14ad36ae8bb03da", size = 10138027, upload-time = "2026-01-13T11:04:49.104Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6a/6b/2f416568b3c4c91c96e5a365d164f8a4a4a88030aa8ab4644181fdadce97/transformers-4.57.3-py3-none-any.whl", hash = "sha256:c77d353a4851b1880191603d36acb313411d3577f6e2897814f333841f7003f4", size = 11993463, upload-time = "2025-11-25T15:51:26.493Z" },
+    { url = "https://files.pythonhosted.org/packages/0e/60/9da7cb82a84cc2a725cd452d5552f7b9490b63c1c25d76d09612f053f401/transformers-4.57.4-py3-none-any.whl", hash = "sha256:11109b65a20413a7784bf3f3e908dc074217f4414cf1f7a5bd015b8c3b10bacb", size = 11993481, upload-time = "2026-01-13T11:04:40.945Z" },
 ]
 
 [[package]]
