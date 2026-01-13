@@ -3,18 +3,16 @@ name = "dtu-mlops"
 version = "0.1.0"
 description = "DTU MLOps course"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12,<3.14"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
   "codespell>=2.4.1",
   "invoke>=2.2",
-  "ipython>=9.0.2",
+  "ipython>=8.12.3",
   "markdown-exec[ansi]>=1.10",
   "mkdocs-exclude>=1.0.2",
   "mkdocs-git-revision-date-localized-plugin>=1.4.5",
