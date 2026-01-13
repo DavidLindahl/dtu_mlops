@@ -9,16 +9,26 @@ import pickle
 
 def test_train_script_runs_and_creates_model():
     """Simple test that actually runs train.py script and verifies it creates a model file."""
+    # 1. Get the absolute path to the project root (relative to THIS test file)
+    # This works no matter where you run pytest from
+    current_test_dir = Path(__file__).parent.resolve()
+    project_root = current_test_dir.parent
+    
+    # 2. Construct the absolute path to train.py
+    script_path = project_root / "src" / "cookiecutter_project" / "train.py"
+
+    # Verify it exists before trying to run it (helps debugging)
+    assert script_path.exists(), f"Could not find train.py at {script_path}"
+
     with tempfile.TemporaryDirectory() as tmpdir:
         output_path = Path(tmpdir) / "test_svm_model.pkl"
 
-        # Run the train.py script using uv run (handles Python path correctly)
-        script_path = os.path.join("src", "cookiecutter_project", "train.py")
+        # 3. Run the script using the absolute path
         result = subprocess.run(
-            ["uv", "run", "python", script_path, "train", "svm", "--output", str(output_path)],
+            ["uv", "run", "python", str(script_path), "train", "svm", "--output", str(output_path)],
             capture_output=True,
             text=True,
-            cwd=Path.cwd(),
+            cwd=project_root,  # IMPORTANT: Run the command as if we were inside the project folder
         )
 
         # Check that script ran successfully

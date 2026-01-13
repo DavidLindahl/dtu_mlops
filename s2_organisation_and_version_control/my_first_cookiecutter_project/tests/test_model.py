@@ -9,7 +9,14 @@ from cookiecutter_project.data import MyDataset
 
 def test_model_predict_dimensions():
     """Test that the model's predict method returns the correct dimensions."""
-    model_path = os.path.join("models", "knn_model.pkl")
+    # 1. Get the directory where THIS test file is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # 2. Go up one level (from 'tests/' to 'my_first_cookiecutter_project/')
+    project_root = os.path.dirname(current_dir)
+
+    # 3. Join the path properly
+    model_path = os.path.join(project_root, "models", "knn_model.pkl")
 
     # Skip test if model doesn't exist
     if not os.path.exists(model_path):
@@ -28,7 +35,14 @@ def test_model_predict_dimensions():
 
 def test_model_predict_binary_values():
     """Test that the model predicts binary values (0 or 1)."""
-    model_path = os.path.join("models", "knn_model.pkl")
+    # 1. Get the directory where THIS test file is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # 2. Go up one level (from 'tests/' to 'my_first_cookiecutter_project/')
+    project_root = os.path.dirname(current_dir)
+
+    # 3. Join the path properly
+    model_path = os.path.join(project_root, "models", "knn_model.pkl")
 
     # Skip test if model doesn't exist
     if not os.path.exists(model_path):
@@ -52,7 +66,14 @@ def test_model_predict_binary_values():
 
 def test_model_predict_with_full_dataset():
     """Test that the model can predict on the full test set."""
-    model_path = os.path.join("models", "knn_model.pkl")
+    # 1. Get the directory where THIS test file is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # 2. Go up one level (from 'tests/' to 'my_first_cookiecutter_project/')
+    project_root = os.path.dirname(current_dir)
+
+    # 3. Join the path properly
+    model_path = os.path.join(project_root, "models", "knn_model.pkl")
 
     # Skip test if model doesn't exist
     if not os.path.exists(model_path):
