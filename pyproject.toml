@@ -33,6 +33,7 @@ dependencies = [
   "flake8>=7.2.0",
   "pytest>=8.4.2",
   "pip>=25.3",
+  "dvc>=3.66.1",
 ]
 
 [dependency-groups]
@@ -143,7 +144,6 @@ lint.ignore = [
   "S603",
   "S605",
   "S607",
-  "TC003",
 ]
 lint.exclude = [ "student_repos/" ]
 lint.pydocstyle.convention = "google"
