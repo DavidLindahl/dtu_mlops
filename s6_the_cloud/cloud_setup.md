@@ -60,6 +60,16 @@ As the first step, we are going to get you some Google Cloud credits.
     is being created. The notification bell is a good way to make sure how the processes you are running are doing
     throughout the course.
 
+    !!! warning "Create project under 'No organization'"
+
+        When creating your GCP project, make sure to select **"No organization"** from the organization dropdown menu.
+        Many organization-managed accounts (including universities and Google Workspace accounts) enforce security
+        policies that disable the creation of JSON service account keys by default. This is done through the
+        `iam.disableServiceAccountKeyCreation` organization policy. If you create your project under an organization,
+        you may run into issues later when trying to create service account keys, which are needed for authenticating
+        services like GitHub Actions with GCP. Creating your project under "No organization" avoids these restrictions
+        while you are learning.
+
 5. Next is local setup on your laptop. We are going to install `gcloud`, which is part of the Google Cloud SDK.
     `gcloud` is the command line interface for working with our Google Cloud account. Nearly everything that we can do
     through the web interface we can also do through the `gcloud` interface. Follow the installation instructions
@@ -167,9 +177,10 @@ you want them to be able to do. The figure below shows how to do this.
 </figure>
 
 What we are going to go through right now is how to increase the quotas for how many GPUs you have available for your
-project. You can read more about quota types and levels [here](https://docs.cloud.google.com/docs/quotas/overview). By
-default, for any free accounts in GCP (or accounts using teaching credits) the default quota for GPUs that
-you can use is either 0 or 1 (their policies sometimes change). We will in the exercises below try to increase it.
+project. You can read more about quota types and levels
+[in the documentation](https://docs.cloud.google.com/docs/quotas/overview). By default, for any free accounts in GCP
+(or accounts using teaching credits) the default quota for GPUs that you can use is either 0 or 1 (their policies
+sometimes change). We will in the exercises below try to increase it.
 
 ### ❔ Exercises
 
